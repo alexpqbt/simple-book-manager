@@ -159,7 +159,7 @@
             yearTextBox.Location = new Point(82, 78);
             yearTextBox.Name = "yearTextBox";
             yearTextBox.Size = new Size(102, 22);
-            yearTextBox.TabIndex = 19;
+            yearTextBox.TabIndex = 3;
             // 
             // Form1
             // 
