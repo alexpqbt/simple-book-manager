@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             userComboBox = new ComboBox();
             label1 = new Label();
             label2 = new Label();
@@ -173,6 +174,8 @@
             Controls.Add(userComboBox);
             Font = new Font("Roboto", 9F);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Form3";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Transaction";

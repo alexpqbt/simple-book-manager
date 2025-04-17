@@ -14,7 +14,7 @@ namespace LibraryMgmt.DataAccess
         
         public DatabaseSingleton()
         {
-            string databasePath = Path.Combine(Application.StartupPath, @"..\..\..\Database", "test2.db");
+            string databasePath = Path.Combine(Application.StartupPath, "Database", "library.db");
             string connectionString = $"Data Source={Path.GetFullPath(databasePath)};Version=3;";
             _connection = new SQLiteConnection(connectionString);
             _connection.Open();
