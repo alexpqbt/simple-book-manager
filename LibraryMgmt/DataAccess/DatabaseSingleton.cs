@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SQLite;
 
 namespace LibraryMgmt.DataAccess
 {
@@ -11,7 +6,7 @@ namespace LibraryMgmt.DataAccess
     {
         private static DatabaseSingleton? _instance;
         private readonly SQLiteConnection _connection;
-        
+
         public DatabaseSingleton()
         {
             string databasePath = Path.Combine(Application.StartupPath, "Database", "library.db");
