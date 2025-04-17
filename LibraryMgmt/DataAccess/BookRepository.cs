@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using LibraryMgmt.DataAccess;
 using LibraryMgmt.Models;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace LibraryMgmt.DataAccess
 {
@@ -41,6 +42,34 @@ namespace LibraryMgmt.DataAccess
             }
 
             return books;
+        }
+
+        public List<Book> GetAvailableBooks()
+        {
+            var availBooks = new List<Book>();
+
+            string query = @"
+                SELECT * FROM Books WHERE book_id 
+                NOT IN (
+                    SELECT book_id FROM Transactions WHERE status = 'borrowed' OR status = 'overdue'
+                )";
+            using (SQLiteCommand cmd = new SQLiteCommand(query, _connection))
+            using (SQLiteDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    availBooks.Add(new Book
+                    {
+                        BookId = reader["book_id"] != DBNull.Value ? Convert.ToInt32(reader["book_id"]) : -1,
+                        Title = reader["title"] as string ?? string.Empty,
+                        Author = reader["author"] as string ?? string.Empty,
+                        Year = reader["year"] != DBNull.Value ? Convert.ToInt32(reader["year"]) : -1,
+                        Genre = reader["genre"] as string ?? string.Empty
+                    });
+                }
+            }
+
+            return availBooks;
         }
 
         public bool BookExist(Book book)
