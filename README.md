@@ -6,15 +6,12 @@ University assignment focused on demonstrating database usage and multi-panel UI
 ## What It Does
 
 - Create, view, update, and delete book records
-
 - Persists data using a relational database
-
 - Three-panel layout mandated by assignment requirements
 
 ## Technical Focus
 
 - C# (.NET)
-
 - Database integration (stateful CRUD operations)
 
 ## Design Constraints
@@ -24,7 +21,5 @@ University assignment focused on demonstrating database usage and multi-panel UI
 ## What I Learned
 
 - Managing application state across UI components
-
 - Basic database schema design
-
 - The concept of 'single source of truth'
